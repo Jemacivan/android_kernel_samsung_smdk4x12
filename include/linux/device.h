@@ -719,7 +719,7 @@ extern struct device *__root_device_register(const char *name,
 					     struct module *owner);
 static inline struct device *root_device_register(const char *name)
 {
-	return __root_device_register(name, THIS_MODULE);
+	return __root_device_register(name, NULL);
 }
 extern void root_device_unregister(struct device *root);
 

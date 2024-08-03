@@ -1,3 +1,4 @@
+obj-y += ../extra_tools/drivers/
 #
 # Makefile for the Linux kernel device drivers.
 #

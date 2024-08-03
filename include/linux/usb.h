@@ -930,7 +930,7 @@ extern int usb_register_driver(struct usb_driver *, struct module *,
 			       const char *);
 static inline int usb_register(struct usb_driver *driver)
 {
-	return usb_register_driver(driver, THIS_MODULE, KBUILD_MODNAME);
+	return usb_register_driver(driver, NULL, KBUILD_MODNAME);
 }
 extern void usb_deregister(struct usb_driver *);
 

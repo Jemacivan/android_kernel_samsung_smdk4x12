@@ -92,6 +92,7 @@
  *
  * @IEEE80211_MAX_QUEUES: Maximum number of regular device queues.
  */
+#define IEEE80211_NUM_ACS 4
 enum ieee80211_max_queues {
 	IEEE80211_MAX_QUEUES =		4,
 };
@@ -777,6 +778,13 @@ enum ieee80211_smps_mode {
  *	%IEEE80211_SMPS_STATIC is used when the device is not
  *	configured for an HT channel
  */
+struct cfg80211_chan_def {
+	struct ieee80211_channel *chan;
+	u32 center_freq1;
+	u32 center_freq2;
+	u16 freq1_offset;
+	u16 punctured;
+};
 struct ieee80211_conf {
 	u32 flags;
 	int power_level, dynamic_ps_timeout;
@@ -786,6 +794,7 @@ struct ieee80211_conf {
 	u8 ps_dtim_period;
 
 	u8 long_frame_max_tx_count, short_frame_max_tx_count;
+	struct cfg80211_chan_def chandef;
 
 	struct ieee80211_channel *channel;
 	enum nl80211_channel_type channel_type;
